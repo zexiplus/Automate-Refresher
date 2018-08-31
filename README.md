@@ -1,7 +1,7 @@
 # Auto-Refresher
 A repository which can open and refresh your bowser when your file update
 
-一个可以 可以在文件更新时自动刷新浏览器的小脚本
+**一个可以 可以在文件更新时自动刷新浏览器的小脚本**
 
 
 
@@ -55,6 +55,12 @@ A repository which can open and refresh your bowser when your file update
       res.setHeader('Cache-Control', 'max-age=10')
   })
   ```
+
+
+
+##### 下载chrome 的 chromi 插件
+
+点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)插件并安装
 
 
 
