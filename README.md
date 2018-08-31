@@ -11,3 +11,104 @@ A repository which can open and refresh your bowser when your file update
 
 
 
+### 配置&下载
+
+
+
+##### 服务器缓存控制
+
+在下载使用 Auto-Refresher 之前， 先修改本地服务器的缓存策略， 不然浏览器刷新没有任何意义。不同的本地服务器有着不同的配置，但是思路是一致的，就是设置服务器返回头的 **Expires** 字段或者 **Cathe-control** 字段，  这里以appache 和 node 的 httpServer为例。
+
+* **apache**
+
+  找到 **httpd.conf**文件， 这个文件是 apache 服务器的主要配置文件, 修改参考如下
+
+  ```bash
+  # 第一种方法
+  LoadModule expires_module modules/mod_expires.so
+  ExpiresActive On
+  # html文档的过期时间为 从上次访问（A）开始 10 秒钟
+  ExpiresByType text/html A10
+  ExpiresByType image/gif A2592000
+  # HTML文档的有效期是最后修改（M）时刻后的一星期
+  ExpiresByType text/html M604800
+  ExpiresByType text/css N1000
+  ExpiresByType text/js "now plus 2 days"
+  ExpiresByType image/jpeg "access plus 2 months"
+  ExpiresByType image/bmp "access plus 2 months"
+  ExpiresByType image/x-icon "access plus 2 months"
+  ExpiresByType image/png "access plus 2 months"
+  
+  # 第二种方法
+  LoadModule headers_module modules/mod_headers.so
+  header set cache-control "max-age=1000"
+  ```
+
+* **httpServer**
+
+  与 apache 服务器不同, node 的 httpserver响应头是由用户控制的， 并不是配置文件控制的。
+
+  ```js
+  const http = require('http')
+  http.createServer((req, res) => {
+      res.setHeader('Expires', `${new Date() + 1000}`)
+      res.setHeader('Cache-Control', 'max-age=10')
+  })
+  ```
+
+
+
+##### 下载Auto-Refresher
+
+```shell
+# 拷贝仓库
+git clone https://github.com/zexiplus/Auto-Refresher.git
+
+# 打开文件夹
+cd Auto-Refresher
+
+# 安装依赖
+npm install
+```
+
+
+
+### 运行
+
+* **读取配置文件 config.js 运行**
+
+  
+
+  **config.js** 如下 **path指定需要检测的项目文件夹**, **url 为浏览器打开的地址, deep选项为深度遍历文件夹**
+
+  ```js
+  const path = require('path')
+  const config = {
+      path: path.resolve(__dirname, './demo'),
+      url: 'file:///' + path.resolve(__dirname, './demo/index.html').replace(/\\/g, '/'),
+      deep: true
+  }
+  module.exports = config
+  ```
+
+  ```shell
+  npm start
+  ```
+
+  打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新
+
+
+
+* **根据命令行参数运行**
+
+  **path指定需要检测的项目文件夹**, **url 为浏览器打开的地址, 1 为深度遍历**
+
+  ```shell
+  node index.js path url 1
+  ```
+
+
+
+### 协议 
+
+* MIT
