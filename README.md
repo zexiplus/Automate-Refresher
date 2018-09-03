@@ -60,9 +60,9 @@ A repository which can open and refresh your bowser when your file update
 
 ##### 下载chrome 的 chromi 插件
 
-Windows 系统 点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)插件并安装
+Windows 系统 点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)谷歌浏览器插件并安装
 
-Uinx 系统下载 
+Uinx 系统下载 点击下载[chromix-too](https://chrome.google.com/webstore/detail/chromix-too/ppapdfccnamacakfkpfmpfnefpeajboj?utm_source=chrome-ntp-icon)谷歌浏览器插件并安装
 
 
 
