@@ -83,6 +83,10 @@ npm install
 
 ### 运行
 
+![./demo/auto-demo.gif](./demo/auto-demo.gif)
+
+
+
 **1.打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
 
 * **读取配置文件 config.js 运行**
