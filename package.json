@@ -27,6 +27,7 @@
   "dependencies": {
     "ansi": "^0.3.1",
     "chalk": "^2.4.1",
-    "chromix": "^0.1.19"
+    "chromix": "^0.1.19",
+    "chromix-too": "0.0.15"
   }
 }
