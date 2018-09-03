@@ -60,7 +60,9 @@ A repository which can open and refresh your bowser when your file update
 
 ##### 下载chrome 的 chromi 插件
 
-点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)插件并安装
+Windows 系统 点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)插件并安装
+
+Uinx 系统下载 
 
 
 
@@ -81,17 +83,19 @@ npm install
 
 ### 运行
 
+**1.打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
+
 * **读取配置文件 config.js 运行**
 
-  
 
-  **config.js** 如下 **path指定需要检测的项目文件夹**, **url 为浏览器打开的地址, deep选项为深度遍历文件夹**
+
+  **config.js** 
 
   ```js
   const path = require('path')
   const config = {
       path: path.resolve(__dirname, './demo'),
-      url: 'file:///' + path.resolve(__dirname, './demo/index.html').replace(/\\/g, '/'),
+      index: 0,
       deep: true
   }
   module.exports = config
@@ -101,19 +105,24 @@ npm install
   npm start
   ```
 
-  打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新
+  - **path** 为开发目录
+
+  - **index**为浏览器的tab索引 第一项为0
+
+  - **deep** 取值1 为深度检测, 0 为浅检测
 
 
+**2.打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
 
 * **根据命令行参数运行**
 
-  **path指定需要检测的项目文件夹**, **url 为浏览器打开的地址, 1 为深度遍历**
-
   ```shell
-  node index.js path url 1
+  node index.js path index deep
   ```
 
-
+  * **path** 为开发目录
+  * **index**为浏览器的tab索引 第一项为0
+  * **deep** 取值1 为深度检测, 0 为浅检测
 
 ### 协议 
 
