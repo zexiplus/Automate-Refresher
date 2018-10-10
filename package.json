@@ -1,8 +1,11 @@
 {
-  "name": "auto-refresher",
-  "version": "0.1.1",
+  "name": "automate-refresher",
+  "version": "1.1.1",
   "description": "A repository which can open and refresh your bowser when your file update",
   "main": "index.js",
+  "bin": {
+    "auto": "./bin/script.js"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,11 +17,11 @@
   "keywords": [
     "auto",
     "refresh",
-    "auto-refresher",
+    "auto-refresh",
     "update",
     "bowser"
   ],
-  "author": "float",
+  "author": "simple.css",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zexiplus/Auto-Refresher/issues"
@@ -28,6 +31,7 @@
     "ansi": "^0.3.1",
     "chalk": "^2.4.1",
     "chromix": "^0.1.19",
-    "chromix-too": "0.0.15"
+    "chromix-too": "0.0.15",
+    "commander": "^2.19.0"
   }
 }
