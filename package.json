@@ -1,6 +1,6 @@
 {
   "name": "automate-refresher",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A repository which can open and refresh your bowser when your file update",
   "main": "index.js",
   "bin": {

@@ -1,4 +1,4 @@
-# Auto-Refresher
+# Automate-Refresher
 A repository which can open and refresh your bowser when your file update
 
 **一个可以 可以在文件更新时自动刷新浏览器的小脚本**
@@ -15,11 +15,76 @@ A repository which can open and refresh your bowser when your file update
 
 
 
+##### 下载chrome 的 chromi 插件
+
+此项目依赖于chromix 的谷歌插件, 需先行下载安装
+
+Windows 系统 点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)谷歌浏览器插件并安装
+
+Uinx 系统下载 点击下载[chromix-too](https://chrome.google.com/webstore/detail/chromix-too/ppapdfccnamacakfkpfmpfnefpeajboj?utm_source=chrome-ntp-icon)谷歌浏览器插件并安装
+
+
+
+#### **下载**
+
+```shell
+npm i -g automate-refresher
+```
+
+#### **运行**
+
+找到你要监控的开发目录 运行 
+
+```shell
+autorefresh start
+```
+
+
+
+
+
+### 运行效果
+
+![./demo/auto-demo.gif](./demo/auto-demo.gif)
+
+
+
+
+
+### 其他
+
+也可以通过拷贝git仓库, 使用Automate-Refresher
+
+```shell
+git clone https://github.com/zexiplus/Automate-Refresher.git
+cd Automate-Refresher
+npm install
+
+// 运行
+npm start
+```
+
+**打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
+
+
+
+**配置文件说明**
+
+* **path** 为监控目录
+* **index**为浏览器的tab索引 第一项为0
+* **deep** 取值1 为深度检测, 0 为浅检测
+
+
+
+
+
+### 注意事项
+
 ##### 服务器缓存控制
 
-在下载使用 Auto-Refresher 之前， 先修改本地服务器的缓存策略， 不然浏览器刷新没有任何意义。不同的本地服务器有着不同的配置，但是思路是一致的，就是设置服务器返回头的 **Expires** 字段或者 **Cathe-control** 字段，  这里以appache 和 node 的 httpServer为例。
+在下载使用 Auto-Refresher 之前， **先修改本地服务器的缓存策略， 不然浏览器刷新没有任何意义**。不同的本地服务器有着不同的配置，但是思路是一致的，就是设置服务器返回头的 **Expires** 字段或者 **Cathe-control** 字段，  这里以appache 和 node 的 httpServer为例。
 
-* **apache**
+- **apache**
 
   找到 **httpd.conf**文件， 这个文件是 apache 服务器的主要配置文件, 修改参考如下
 
@@ -44,7 +109,7 @@ A repository which can open and refresh your bowser when your file update
   header set cache-control "max-age=1000"
   ```
 
-* **httpServer**
+- **httpServer**
 
   与 apache 服务器不同, node 的 httpserver响应头是由用户控制的， 并不是配置文件控制的。
 
@@ -57,82 +122,6 @@ A repository which can open and refresh your bowser when your file update
   ```
 
 
-
-##### 下载chrome 的 chromi 插件
-
-Windows 系统 点击下载[chromi](https://chrome.google.com/webstore/detail/chromi/eeaebnaemaijhbdpnmfbdboenoomadbo)谷歌浏览器插件并安装
-
-Uinx 系统下载 点击下载[chromix-too](https://chrome.google.com/webstore/detail/chromix-too/ppapdfccnamacakfkpfmpfnefpeajboj?utm_source=chrome-ntp-icon)谷歌浏览器插件并安装
-
-
-
-##### 下载Auto-Refresher
-
-```shell
-# 拷贝仓库
-git clone https://github.com/zexiplus/Auto-Refresher.git
-
-# 打开文件夹
-cd Auto-Refresher
-
-# 安装依赖
-npm install
-```
-
-```shell
-npm i -g automate-refresher
-```
-
-
-
-
-
-### 运行
-
-![./demo/auto-demo.gif](./demo/auto-demo.gif)
-
-
-
-**1.打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
-
-* **读取配置文件 config.js 运行**
-
-
-
-  **config.js** 
-
-  ```js
-  const path = require('path')
-  const config = {
-      path: path.resolve(__dirname, './demo'),
-      index: 0,
-      deep: true
-  }
-  module.exports = config
-  ```
-
-  ```shell
-  npm start
-  ```
-
-  - **path** 为开发目录
-
-  - **index**为浏览器的tab索引 第一项为0
-
-  - **deep** 取值1 为深度检测, 0 为浅检测
-
-
-**2.打开demo文件夹中的index.html， 任意修改demo文件夹下的文件， 观察浏览器自动刷新**
-
-* **根据命令行参数运行**
-
-  ```shell
-  node index.js path index deep
-  ```
-
-  * **path** 为开发目录
-  * **index**为浏览器的tab索引 第一项为0
-  * **deep** 取值1 为深度检测, 0 为浅检测
 
 ### 协议 
 
