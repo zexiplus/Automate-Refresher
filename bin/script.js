@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const programe = require('commander')
 const version = require('../package').version
 programe.version(version, '--version')
@@ -14,11 +13,17 @@ let opt = {
         recursive: process.argv[4] == 1 || config.deep
     }
 }
+opt.path = process.cwd()
 
 programe
-    .command('autorefresh')
+    .usage('start')
+    .command('start')
     .action(() => {
+        opt.path = process.cwd()
+        autoRefresher.execChromix()
         autoRefresher.inspect(opt)
     })
+programe.parse(process.argv)
+
 
 

@@ -79,6 +79,12 @@ cd Auto-Refresher
 npm install
 ```
 
+```shell
+npm i -g automate-refresher
+```
+
+
+
 
 
 ### 运行

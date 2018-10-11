@@ -1,10 +1,10 @@
 {
   "name": "automate-refresher",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "description": "A repository which can open and refresh your bowser when your file update",
   "main": "index.js",
   "bin": {
-    "auto": "./bin/script.js"
+    "autorefresh": "./bin/script.js"
   },
   "scripts": {
     "start": "node index.js",

@@ -7,4 +7,5 @@ let opt = {
     watchOption: { recursive: process.argv[4] == 1 || config.deep }
 }
 
+autoRefresher.execChromix()
 autoRefresher.inspect(opt)
